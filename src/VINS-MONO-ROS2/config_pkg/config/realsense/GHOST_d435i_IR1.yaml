@@ -1,0 +1,102 @@
+%YAML:1.0
+
+# ----------------------------------------------------------------------
+# Common parameters
+# ----------------------------------------------------------------------
+imu_topic:     "/camera/camera/imu"
+image_topic:   "/camera/camera/infra1/image_rect_raw"
+output_path:   "/home/ghost/ros2_ws/src/VINS-MONO-ROS2/output"
+
+# ----------------------------------------------------------------------
+# Camera calibration (Pinhole + RadTan distortion)
+# ----------------------------------------------------------------------
+model_type:    PINHOLE
+camera_name:   camera
+image_width:   848
+image_height:  480
+
+distortion_parameters:
+   k1: -2.3317303522875935e-04
+   k2: -9.6294463937822820e-04
+   p1:  1.2062739827394743e-03
+   p2:  3.0316727823636284e-04
+
+projection_parameters:
+   fx: 423.48109096000036
+   fy: 423.17189015800310
+   cx: 430.34751609180670
+   cy: 239.92254368766316
+
+# ----------------------------------------------------------------------
+# Extrinsic parameters: Camera → IMU
+#   (R and t from Kalibr’s T_cam_imu)
+# ----------------------------------------------------------------------
+estimate_extrinsic: 0
+
+extrinsicRotation: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [  0.9999410997383575, -0.010578483115516167,  0.0024274985103014003,
+            0.010588837386178033, 0.9999347214137217,   -0.004292951673443244,
+            -0.0023819271298372103, 0.004318403204447234,  0.9999878388345084]
+
+extrinsicTranslation: !!opencv-matrix
+   rows: 3
+   cols: 1
+   dt: d
+   data: [ 0.006124313479961996,  -0.006196164595724928,  -0.020813897044960256 ]
+
+# ----------------------------------------------------------------------
+# Feature-tracker parameters
+# ----------------------------------------------------------------------
+max_cnt:           150
+min_dist:          30
+freq:              20
+F_threshold:       1.0
+show_track:        1
+equalize:          0
+fisheye:           0
+
+# ----------------------------------------------------------------------
+# Sliding-window optimization
+# ----------------------------------------------------------------------
+max_solver_time:   0.04      # seconds
+max_num_iterations:8
+keyframe_parallax: 10.0      # pixels
+
+# ----------------------------------------------------------------------
+# IMU noise & bias (from your YAML)
+# ----------------------------------------------------------------------
+acc_n:   0.2        # accelerometer σ (m/s²)
+gyr_n:   0.01       # gyro σ (rad/s)
+acc_w:   0.002      # accel bias random walk (m/s²/s^0.5)
+gyr_w:   2.0e-5     # gyro bias random walk (rad/s/s^0.5)
+g_norm:  9.805      # gravity (m/s²)
+
+# ----------------------------------------------------------------------
+# Loop-closure
+# ----------------------------------------------------------------------
+loop_closure:               1
+fast_relocalization:        1
+load_previous_pose_graph:   0
+pose_graph_save_path:       "/home/ghost/ros2_ws/src/VINS-MONO-ROS2/output/pose_graph/"
+
+# ----------------------------------------------------------------------
+# Temporal synchronization (Kalibr time-shift)
+# ----------------------------------------------------------------------
+estimate_td: 1
+td:           0.0033580113707491264   # (s) image_time + td = IMU_time
+
+# ----------------------------------------------------------------------
+# Rolling-shutter model
+# ----------------------------------------------------------------------
+rolling_shutter:    0   # 0 = global shutter (IR uses global shutter)
+rolling_shutter_tr: 0.0 # no readout time needed
+
+# ----------------------------------------------------------------------
+# Visualization
+# ----------------------------------------------------------------------
+save_image:           1
+visualize_imu_forward:0
+visualize_camera_size:0.4

@@ -1,0 +1,24 @@
+<!--
+  Example launch file for octomap_server mapping:
+  Listens to incoming PointCloud2 data and incrementally builds an octomap.
+  The data is sent out in different representations.
+
+  Copy this file into your workspace and adjust as needed, see
+  www.ros.org/wiki/octomap_server for details
+-->
+<launch>
+	<node pkg="octomap_server" exec="octomap_server_node" name="octomap_server">
+		<param name="resolution" value="0.05" />
+
+		<!-- fixed map frame (set to 'map' if SLAM or localization running!) -->
+		<!-- I changed odom_combined to world. Currently, the frame ids in rviz are camera, body, world -->
+		<param name="frame_id" value="map" />
+
+		<!-- maximum range to integrate (speedup!) -->
+		<param name="sensor_model.max_range" value="5.0" />
+
+		<!-- data source to integrate (PointCloud2) -->
+		<!-- maybe a better topic would be /points2_in -->
+		<remap from="cloud_in" to="/point_cloud_converter/output" />
+	</node>
+</launch>

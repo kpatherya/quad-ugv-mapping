@@ -1,0 +1,18 @@
+name: Repository validation
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  static-contracts:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate structure, manifests, links, and topic contracts
+        run: python3 tools/validate_repository.py
+      - name: Check shell syntax
+        run: bash -n tools/build_workspace.sh

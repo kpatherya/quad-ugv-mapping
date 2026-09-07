@@ -67,8 +67,7 @@ public:
             cv::Mat depth_image = cv_ptr->image;
 
             pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);
-            // using camera optical frame below, not map
-            cloud->header.frame_id = "camera_depth_optical_frame";
+            cloud->header.frame_id = depth_msg->header.frame_id;
             cloud->header.stamp = depth_msg->header.stamp.sec * 1000000LL + depth_msg->header.stamp.nanosec / 1000;
 
             // convert depth image to point cloud
@@ -101,9 +100,7 @@ public:
             // convert to ROS message and publish
             sensor_msgs::msg::PointCloud2 output;
             pcl::toROSMsg(*cloud, output);
-            output.header.frame_id = "camera_depth_optical_frame";
-            output.header.stamp = depth_msg->header.stamp;
-            // output.header = depth_msg->header;
+            output.header = depth_msg->header;
 
             pointcloud_pub_->publish(output);
         

@@ -1,3 +1,13 @@
+# Toolbox integration note
+
+This is an adapted snapshot of
+[dongbo19/VINS-MONO-ROS2](https://github.com/dongbo19/VINS-MONO-ROS2), retained
+under its upstream GPLv3 terms. The toolbox-level work connects the ROS 2 VIO
+pipeline to point-cloud conversion, RealSense depth, TF publication, OctoMap,
+and RViz. Directory placement does not imply authorship of VINS-Mono or the ROS
+2 port. Exact upstream snapshot provenance remains to be recovered; see
+`docs/PROVENANCE.md` from the repository root.
+
 # VINS-MONO-ROS2
 ## ROS2 version of VINS-MONO
 # 1. Introduction

@@ -1,0 +1,13 @@
+.git
+.github
+.idea
+.vscode
+build
+install
+log
+data
+datasets
+results
+*.bag
+*.db3
+*.mcap

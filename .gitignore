@@ -1,0 +1,24 @@
+# colcon outputs
+build/
+install/
+log/
+
+# ROS and test artifacts
+*.bag
+*.bag.active
+*.db3
+*.mcap
+*.orig
+*.pyc
+.pytest_cache/
+__pycache__/
+
+# Local datasets and generated results
+data/
+datasets/
+results/
+
+# Editors and operating systems
+.DS_Store
+.idea/
+*.swp

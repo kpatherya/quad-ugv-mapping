@@ -60,8 +60,7 @@ def generate_launch_description():
         output='screen',
         parameters=[{
             'points_in': '/vins_estimator/point_cloud',
-            'points2_out': '/point_cloud_converter/output',
-            'target_frame': 'map'  # set frame_id to match octomap server
+            'points2_out': '/point_cloud_converter/output'
         }]
     )
 
@@ -103,7 +102,7 @@ def generate_launch_description():
         remappings=[
             ('depth_image', '/camera/camera/depth/image_rect_raw'),
             ('camera_info', '/camera/camera/depth/camera_info'),
-            ('pointcloud_out', '/dense_pointcloud')     # map to what octomap expects
+            ('pointcloud_out', '/depth_pointcloud')
         ]
     )
 

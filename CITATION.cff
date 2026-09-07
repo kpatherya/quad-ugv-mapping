@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this toolbox, cite it and the upstream algorithms used in your experiment."
+title: "Heterogeneous Robot Mapping Toolbox"
+type: software
+authors:
+  - family-names: Patherya
+    given-names: Kausar
+repository-code: "https://github.com/kpatherya/quad-ugv-mapping"
+url: "https://github.com/kpatherya/quad-ugv-mapping"
+version: 0.1.0
+date-released: 2026-09-06
+keywords:
+  - ROS 2
+  - visual-inertial odometry
+  - 3D mapping
+  - heterogeneous robots
+  - OctoMap
+  - RealSense
+abstract: >-
+  A reproducible ROS 2 workspace integrating visual-inertial odometry,
+  depth sensing, transform alignment, point-cloud conversion, and 3D occupancy
+  mapping for heterogeneous robot research.

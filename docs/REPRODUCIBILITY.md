@@ -32,7 +32,7 @@ python3 tools/validate_repository.py
 ```
 
 This checks XML readability, unique ROS package names, expected ownership
-directories, local Markdown links, and unresolved license placeholders in the
+directories, local Markdown links, and unresolved or provenance-pending license metadata in the
 project-facing integration and toolbox directories. It does not compile C++.
 
 ## Level B: build

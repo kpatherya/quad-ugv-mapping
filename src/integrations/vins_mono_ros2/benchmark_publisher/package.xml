@@ -5,7 +5,7 @@
   <version>0.0.0</version>
   <description>TODO: Package description</description>
   <maintainer email="db@todo.todo">db</maintainer>
-  <license>TODO: License declaration</license>
+  <license>GPL-3.0-only</license>
 
   <depend>rclcpp</depend>
   <depend>rcpputils</depend>

@@ -13,8 +13,8 @@ source safely reusable.
 - [ ] Recover exact upstream commit IDs for every directory in `src/vendor` and
   `src/integrations`.
 - [ ] Identify the original source and license of `point_cloud_converter`.
-- [ ] Replace all `TODO` package license fields using authoritative upstream
-  license information.
+- [ ] Verify package license fields against authoritative upstream notices and
+  keep third-party attribution intact.
 - [ ] Verify the bundled DBoW, DVision, BRIEF, and camera-model notices within
   the VINS-Mono integration.
 

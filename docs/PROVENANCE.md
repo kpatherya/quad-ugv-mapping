@@ -25,7 +25,7 @@ OpenVINS, OctoMap, RealSense, PX4, or ROS vision algorithms.
 
 | Local path | Upstream | Role | Declared license | Snapshot precision |
 | --- | --- | --- | --- | --- |
-| `src/integrations/vins_mono_ros2` | [dongbo19/VINS-MONO-ROS2](https://github.com/dongbo19/VINS-MONO-ROS2) | Adapted ROS 2 VINS pipeline and project wiring | GPLv3 in upstream README; package manifests still contain placeholders | Exact upstream commit unknown |
+| `src/integrations/vins_mono_ros2` | [dongbo19/VINS-MONO-ROS2](https://github.com/dongbo19/VINS-MONO-ROS2) | Adapted ROS 2 VINS pipeline and project wiring | GPLv3 in upstream README; package manifests normalized to `GPL-3.0-only` | Exact upstream commit unknown |
 | `src/vendor/octomap_mapping` | [OctoMap/octomap_mapping](https://github.com/OctoMap/octomap_mapping) | ROS wrappers and OctoMap server | BSD | Exact upstream commit unknown |
 | `src/vendor/octomap_msgs` | [OctoMap/octomap_msgs](https://github.com/OctoMap/octomap_msgs) | OctoMap ROS interfaces | BSD | Exact upstream commit unknown |
 | `src/vendor/open_vins` | [rpng/open_vins](https://github.com/rpng/open_vins) | Alternative VIO implementation and reference configurations | GPLv3 | Exact upstream commit unknown |
@@ -33,7 +33,7 @@ OpenVINS, OctoMap, RealSense, PX4, or ROS vision algorithms.
 | `src/vendor/px4-ros2-interface-lib` | [Auterion/px4-ros2-interface-lib](https://github.com/Auterion/px4-ros2-interface-lib) | PX4 ROS 2 interface | See component `LICENSE` | Exact upstream commit unknown |
 | `src/vendor/px4_msgs` | [PX4/px4_msgs](https://github.com/PX4/px4_msgs) | PX4 message definitions | BSD-3-Clause | Exact upstream commit unknown |
 | `src/vendor/vision_opencv` | [ros-perception/vision_opencv](https://github.com/ros-perception/vision_opencv) | `cv_bridge` and camera geometry | Apache-2.0 and BSD | Exact upstream commit unknown |
-| `src/toolbox/point_cloud_converter` | Historical ROS package source not yet identified | PointCloud compatibility adapter | Package manifest says `TODO` | Provenance review required |
+| `src/toolbox/point_cloud_converter` | Historical ROS package source not yet identified | PointCloud compatibility adapter | `LicenseRef-Provenance-Pending` in package manifest | Provenance review required |
 
 VINS-MONO-ROS2 also includes VINS-Mono, camera-model, DBoW, DVision, and BRIEF
 derived code. Consult its README and source headers before redistribution.
@@ -56,8 +56,8 @@ Before a formal archival release:
 
 1. Identify the exact upstream commit for every imported snapshot using file
    hashes or the original clone records.
-2. Resolve `TODO` license fields in VINS-MONO-ROS2 against authoritative
-   upstream notices without removing third-party attribution.
+2. Confirm every VINS-MONO-ROS2 package manifest license declaration against
+  authoritative upstream notices without removing third-party attribution.
 3. Identify the source and license of `point_cloud_converter`.
 4. Add a machine-readable dependency manifest pinned to verified commits.
 5. Archive datasets and result artifacts separately with checksums.

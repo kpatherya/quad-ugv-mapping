@@ -10,7 +10,7 @@
   <maintainer email="sam.pfeiffer@pal-robotics.com">Sammy Pfeiffer</maintainer>
 
 
-  <license>TODO</license>
+  <license>LicenseRef-Provenance-Pending</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
   <run_depend>rclcpp</run_depend>
